@@ -11,7 +11,7 @@ function App() {
       <Select />
       <Versus />
       <Rules />
-      <button className="button">Rules</button>
+      <button className="button">RULES</button>
     </main>
   );
 }
