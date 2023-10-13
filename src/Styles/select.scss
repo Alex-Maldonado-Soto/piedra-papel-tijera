@@ -9,15 +9,7 @@
     width: 350px;
     
     & > figure:not(.select__pentagon) {
-        transform-origin: center;
-        width: 100px;
-        height: 100px;
-        border-radius: 100%;
-        padding: 20px;
-        background-color: $sure-color;
-        border-width: 10px;
-        border-style: solid;
-        z-index: 10;
+        @include figureSelect();
     }
 
     &__scissors{

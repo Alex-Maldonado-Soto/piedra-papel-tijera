@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "All the proyect"
+        "All the proyect",
+        "Rules"
     ]
 }

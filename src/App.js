@@ -5,13 +5,13 @@ import { Versus } from "./Components/Versus";
 import { Rules } from "./Components/Rules";
 
 function App() {
+
   return (
     <main>
       <Score />
       <Select />
       <Versus />
-      <Rules />
-      <button className="button">RULES</button>
+      <Rules/> 
     </main>
   );
 }
