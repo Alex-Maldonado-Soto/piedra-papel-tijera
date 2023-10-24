@@ -3,7 +3,7 @@ import img from '../images/img'
 
 export const Rules = () => {
 
-  const [open, setOpen] = useState('open');
+  const [open, setOpen] = useState('close');
 
   const state = (nuevoNombre) => {
     setOpen(nuevoNombre);
