@@ -1,34 +1,26 @@
-import React from 'react'
-import img from '../images/img'
+import React, { useState } from 'react'
+import { Victory } from './subComponentesVersus/Victory';
+import { Enemy } from './subComponentesVersus/Enemy';
+import { Player } from './subComponentesVersus/Player';
 
 export const Versus = ({attack}) => {
 
   let results = "YOU WIN";
+
+  const [attackEnemy, setAttack] = useState("");
+
+  const pieceEnemy = (newMove) => {
+    setAttack(newMove)
+  }
 
 
   if (attack) {
 
     return (
       <section className="versus">
-        <div className='versus__player' id='player'>
-          <figure className={ attack + ' versus__player--img' }>
-            <img src={img[attack]} alt=""/>
-          </figure>
-          <span className='versus__span'>YOU PICKED</span>
-  
-        </div>
-        <div className='versus__enemy' id='enemy'>
-          <figure className='scissor versus__enemy--background'>
-            <img src={img.scissor} alt=""/>
-          </figure>
-          <span className='versus__span'>THE HOUSE PICKED</span>
-        </div>
-
-          <div className='versus__again'>
-          <span className='versus__again--results'>{results}</span>
-            <button className='versus__again--play'>PLAY AGAIN</button>
-          </div>
-
+      <Player attack={attack}/>
+      <Enemy attackEnemy={attackEnemy}/>
+      <Victory/>
       </section>
     )
   }
