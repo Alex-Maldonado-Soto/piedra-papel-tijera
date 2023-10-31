@@ -3,14 +3,11 @@ import { Victory } from './subComponentesVersus/Victory';
 import { Enemy } from './subComponentesVersus/Enemy';
 import { Player } from './subComponentesVersus/Player';
 
-export const Versus = ({attack}) => {
+export const Versus = ({attack, moveEnemy}) => {
 
-  let results = "YOU WIN";
-
-  const [attackEnemy, setAttack] = useState("");
 
   const pieceEnemy = (newMove) => {
-    setAttack(newMove)
+    moveEnemy(newMove)
   }
 
 
@@ -19,7 +16,7 @@ export const Versus = ({attack}) => {
     return (
       <section className="versus">
       <Player attack={attack}/>
-      <Enemy attackEnemy={attackEnemy}/>
+      <Enemy attackEnemy={moveEnemy}/>
       <Victory/>
       </section>
     )

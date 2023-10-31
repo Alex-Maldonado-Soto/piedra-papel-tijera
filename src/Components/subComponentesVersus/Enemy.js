@@ -4,7 +4,8 @@ import img from '../../images/img'
 export const Enemy = () => {
 
 
-    const moves = ["scissors", "lizard", "paper", "rock", "spock"];
+
+    const moves = ["scissor", "lizard", "paper", "rock", "spock"];
     const randomMoves = moves[Math.floor(Math.random() * moves.length)];
 
         return (
