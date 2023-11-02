@@ -21,18 +21,15 @@ function App() {
 
  const [winner, setWinner] = useState("");
 
- const battle = (player) => {
-    setWinner(player)
-    console.log(player);
+ const battle = (newWinner) => {
+    setWinner(newWinner)
  }
+
+ 
 
 
   return (
     <main>
-
-<figure className='select__scissors' id='scissors'>
-       <img onClick={() => battle("scissor")} alt="select scissor"/>
-      </figure>
       <Score />
       <Select  
       piece={piece} 
@@ -41,6 +38,7 @@ function App() {
       <Versus 
       moveEnemy={moveEnemy}
       attack={attack} 
+      attackEnemy={attackEnemy}
       />
       <Rules/> 
     </main>

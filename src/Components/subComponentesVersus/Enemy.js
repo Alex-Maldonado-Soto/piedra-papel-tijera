@@ -1,17 +1,21 @@
 import React from 'react'
 import img from '../../images/img'
 
-export const Enemy = () => {
-
-
+export const Enemy = ({randomMoves, attacker}) => {
 
     const moves = ["scissor", "lizard", "paper", "rock", "spock"];
-    const randomMoves = moves[Math.floor(Math.random() * moves.length)];
+    const move = (newMove) => {
+      randomMoves(newMove);
+    }
 
-        return (
+    const random = moves[Math.floor(Math.random() * moves.length)]
+
+    move(random)
+
+    return (
             <div className='versus__enemy' id='enemy'>
-            <figure className={randomMoves + ' versus__player--img'}>
-              <img src={img[randomMoves]} alt=""/>
+            <figure className={attacker + ' versus__player--img'}>
+              <img src={img[attacker]} alt=""/>
             </figure>
             <span className='versus__span'>THE HOUSE PICKED</span>
           </div>

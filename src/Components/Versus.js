@@ -1,22 +1,20 @@
 import React, { useState } from 'react'
 import { Victory } from './subComponentesVersus/Victory';
-import { Enemy } from './subComponentesVersus/Enemy';
 import { Player } from './subComponentesVersus/Player';
+import { Enemy } from './subComponentesVersus/Enemy';
 
-export const Versus = ({attack, moveEnemy}) => {
+export const Versus = ({attack, moveEnemy, attackEnemy}) => {
 
-
-  const pieceEnemy = (newMove) => {
+  const randomMoves = (newMove) => {
     moveEnemy(newMove)
   }
-
 
   if (attack) {
 
     return (
       <section className="versus">
       <Player attack={attack}/>
-      <Enemy attackEnemy={moveEnemy}/>
+      <Enemy randomMoves={randomMoves} attacker={attackEnemy}/>
       <Victory/>
       </section>
     )
