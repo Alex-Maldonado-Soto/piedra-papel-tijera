@@ -1,14 +1,13 @@
 import React from 'react'
 
-export const Victory = () => {
+export const Victory = ({winner}) => {
 
-    let results = "YOU WIN";
-    let end = false;
 
-    if (end) {
+
+    if (true) {
         return (
             <div className='versus__again'>
-            <span className='versus__again--results'>{results}</span>
+            <span className='versus__again--results'>{winner}</span>
             <button className='versus__again--play'>PLAY AGAIN</button>
             </div>
         )

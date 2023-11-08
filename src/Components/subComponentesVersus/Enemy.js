@@ -10,14 +10,16 @@ export const Enemy = ({randomMoves, attacker}) => {
 
     const random = moves[Math.floor(Math.random() * moves.length)]
 
-    move(random)
+    if (!attacker) {
+      move(random);
+    }
 
     return (
             <div className='versus__enemy' id='enemy'>
             <figure className={attacker + ' versus__player--img'}>
               <img src={img[attacker]} alt=""/>
             </figure>
-            <span className='versus__span'>THE HOUSE PICKED</span>
+            <span className='versus__span'>THE HOUSE PICK HERE</span>
           </div>
         )
   }

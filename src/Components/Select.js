@@ -4,8 +4,9 @@ import img from '../images/img'
 export const Select = ({piece, attack}) => {
 
   const move = (newMove) => {
-    piece(newMove);
-  }
+      piece(newMove);
+    }
+
 
   if (!attack) {
     

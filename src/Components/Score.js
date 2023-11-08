@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import img from '../images/img';
 
 
 
-export const Score = () => {
+export const Score = ({winner}) => {
 
-  let score = 12;
 
+  let [score, setScore] = useState(1000);
+
+  const points = (newScore) => {
+    setScore(newScore)
+  }
+
+
+if(!score) {
+  if (winner === "WINNER") {
+    points(score++)
+  } else if (winner === "DEFEAT") {
+    points(score--)
+  }
+}
 
   return (
 
