@@ -25,28 +25,44 @@ function App() {
     setWinner(newWinner)
  }
 
+ let [score, setScore] = useState(10);
+
+ const points = (newScore) => {
+   setScore(newScore);
+ }
+
  if(attackEnemy){
     if(!winner){
       if (attack === "scissor" && attackEnemy === "paper" || attack === "scissor" && attackEnemy === "lizard") {
         battle("WINNER")
+        points(score + 1)
       } else if (attack ==="paper" && attackEnemy === "rock" || attack === "paper" && attackEnemy === "spock") {
         battle("WINNER")
+        points(score + 1)
       } else if (attack === "rock" && attackEnemy === "lizard" || attack === "rock" && attackEnemy === "scissor") {
         battle("WINNER")
+        points(score + 1)
       } else if (attack === "lizard" && attackEnemy === "spock" || attack === "lizard" && attackEnemy === "paper") {
         battle("WINNER")
+        points(score + 1)
       } else if (attack === "spock" && attackEnemy === "scissor" || attack === "spock" && attackEnemy === "rock") {
         battle("WINNER")
+        points(score + 1)
       } else if (attack === "scissor" && attackEnemy === "rock" || attack === "scissor" && attackEnemy === "spock") {
         battle("DEFEAT")
+        points(score - 1)
       } else if (attack === "paper" && attackEnemy === "lizard" || attack === "paper" && attackEnemy === "scissor") {
         battle("DEFEAT")
+        points(score - 1)
       } else if (attack === "rock" && attackEnemy === "paper" || attack === "rock" && attackEnemy === "spock") {
         battle("DEFEAT")
+        points(score - 1)
       } else if (attack === "lizard" && attackEnemy === "scissor" || attack === "lizard" && attackEnemy === "rock") {
         battle("DEFEAT")
+        points(score - 1)
       } else if (attack === "spock" && attackEnemy === "lizard" || attack === "spock" && attackEnemy === "paper") {
         battle("DEFEAT")
+        points(score - 1)
       } else if (attack === "scissor" && attackEnemy === "scissor") {
         battle("TIE")
       } else if (attack === "paper" && attackEnemy === "paper") {
@@ -65,6 +81,7 @@ function App() {
     <main>
       <Score 
       winner={winner}
+      score={score}
       />
       <Select  
       piece={piece} 
