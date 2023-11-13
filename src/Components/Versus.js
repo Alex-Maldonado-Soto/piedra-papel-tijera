@@ -3,10 +3,15 @@ import { Victory } from './subComponentesVersus/Victory';
 import { Player } from './subComponentesVersus/Player';
 import { Enemy } from './subComponentesVersus/Enemy';
 
-export const Versus = ({attack, moveEnemy, attackEnemy, winner}) => {
+export const Versus = ({attack, moveEnemy, attackEnemy, battle, winner, piece}) => {
 
   const randomMoves = (newMove) => {
     moveEnemy(newMove)
+  }
+
+  const gameOver = (newMove) => {
+    piece(newMove);
+    battle(newMove);
   }
 
   if (attack) {
@@ -15,7 +20,7 @@ export const Versus = ({attack, moveEnemy, attackEnemy, winner}) => {
       <section className="versus">
       <Player attack={attack}/>
       <Enemy randomMoves={randomMoves} attacker={attackEnemy} attack={attack}/>
-      <Victory winner={winner}/>
+      <Victory winner={winner} gameOver={gameOver}/>
       </section>
     )
   }

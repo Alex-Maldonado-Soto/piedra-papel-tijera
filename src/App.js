@@ -40,6 +40,8 @@ function App() {
    localStorage.setItem('score', newScore);
  }
 
+
+
  if(attackEnemy){
     if(!winner){
       if (attack === "scissor" && attackEnemy === "paper" || attack === "scissor" && attackEnemy === "lizard") {
@@ -103,6 +105,8 @@ function App() {
       moveEnemy={moveEnemy}
       attack={attack} 
       attackEnemy={attackEnemy}
+      piece={piece}
+      battle={battle}
       />
       <Rules/> 
     </main>
