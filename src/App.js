@@ -3,7 +3,7 @@ import { Select } from "./Components/Select";
 import { Score } from "./Components/Score";
 import { Versus } from "./Components/Versus";
 import { Rules } from "./Components/Rules";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
@@ -25,44 +25,54 @@ function App() {
     setWinner(newWinner)
  }
 
- let [score, setScore] = useState(10);
+ let [score, setScore] = useState();
+
+ const getData = () => {
+  return localStorage.getItem('score');
+ }
+
+ useEffect(() =>{
+  setScore(getData());
+ }, []);
 
  const points = (newScore) => {
    setScore(newScore);
+   localStorage.setItem('score', newScore);
  }
 
  if(attackEnemy){
     if(!winner){
       if (attack === "scissor" && attackEnemy === "paper" || attack === "scissor" && attackEnemy === "lizard") {
         battle("WINNER")
-        points(score + 1)
+        points(parseInt(score) + 1)
+        console.log(score)
       } else if (attack ==="paper" && attackEnemy === "rock" || attack === "paper" && attackEnemy === "spock") {
         battle("WINNER")
-        points(score + 1)
+        points(parseInt(score) + 1)
       } else if (attack === "rock" && attackEnemy === "lizard" || attack === "rock" && attackEnemy === "scissor") {
         battle("WINNER")
-        points(score + 1)
+        points(parseInt(score) + 1)
       } else if (attack === "lizard" && attackEnemy === "spock" || attack === "lizard" && attackEnemy === "paper") {
         battle("WINNER")
-        points(score + 1)
+        points(parseInt(score) + 1)
       } else if (attack === "spock" && attackEnemy === "scissor" || attack === "spock" && attackEnemy === "rock") {
         battle("WINNER")
-        points(score + 1)
+        points(parseInt(score) + 1)
       } else if (attack === "scissor" && attackEnemy === "rock" || attack === "scissor" && attackEnemy === "spock") {
         battle("DEFEAT")
-        points(score - 1)
+        points(parseInt(score) - 1)
       } else if (attack === "paper" && attackEnemy === "lizard" || attack === "paper" && attackEnemy === "scissor") {
         battle("DEFEAT")
-        points(score - 1)
+        points(parseInt(score) - 1)
       } else if (attack === "rock" && attackEnemy === "paper" || attack === "rock" && attackEnemy === "spock") {
         battle("DEFEAT")
-        points(score - 1)
+        points(parseInt(score) - 1)
       } else if (attack === "lizard" && attackEnemy === "scissor" || attack === "lizard" && attackEnemy === "rock") {
         battle("DEFEAT")
-        points(score - 1)
+        points(parseInt(score) - 1)
       } else if (attack === "spock" && attackEnemy === "lizard" || attack === "spock" && attackEnemy === "paper") {
         battle("DEFEAT")
-        points(score - 1)
+        points(parseInt(score) - 1)
       } else if (attack === "scissor" && attackEnemy === "scissor") {
         battle("TIE")
       } else if (attack === "paper" && attackEnemy === "paper") {
@@ -76,6 +86,7 @@ function App() {
       }
     }
  }
+
 
   return (
     <main>

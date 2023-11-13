@@ -3,6 +3,7 @@ import img from "../images/img";
 
 export const Score = ({ winner, score}) => {
 
+
   return (
     <header className="score">
       <figure className="score__figure">
