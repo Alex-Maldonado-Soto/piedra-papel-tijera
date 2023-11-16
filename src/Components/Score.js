@@ -3,6 +3,10 @@ import img from "../images/img";
 
 export const Score = ({ winner, score}) => {
 
+  if (!localStorage.getItem('score')) {
+    localStorage.setItem('score', 10);
+  }
+  
 
   return (
     <header className="score">

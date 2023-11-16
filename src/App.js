@@ -7,6 +7,10 @@ import { useEffect, useState } from "react";
 
 function App() {
 
+  if (!localStorage.getItem('score')) {
+    localStorage.setItem('score', 10);
+  }
+
   const [attack, setAttack] = useState("");
 
   const piece = (newMove) => {
@@ -25,7 +29,7 @@ function App() {
     setWinner(newWinner)
  }
 
- let [score, setScore] = useState();
+ let [score, setScore] = useState('10');
 
  const getData = () => {
   return localStorage.getItem('score');
@@ -39,7 +43,6 @@ function App() {
    setScore(newScore);
    localStorage.setItem('score', newScore);
  }
-
 
 
  if(attackEnemy){
